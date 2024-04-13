@@ -7,4 +7,4 @@
 
 word_list = [word.strip('.,;:-?!') for word in input().split()] # Удаление знаков препинания в списке слов.
 
-print(max(word_list, key=len, default='Пустой список')) # Поиск самого длинного слова.
+print(max(word_list, key=len, default=None)) # Поиск самого длинного слова.
