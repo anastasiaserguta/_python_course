@@ -1,2 +1,9 @@
-word_1, word_2 = set(input()), set(input())
-print(word_1 == word_2)
+# for test: silent listenin
+
+'''
+Пользователь вводит 2 слова. Напишите программу, которая проверяет, являются ли они анаграммами (первое слово может быть сформировано путем
+перестановки букв во втором слове).
+'''
+
+word_1, word_2 = input(), input()
+print(set(word_1) == set(word_2) and len(word_1) == len(word_2))
