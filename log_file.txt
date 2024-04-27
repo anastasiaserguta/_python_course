@@ -1,0 +1,14 @@
+Function name: random_element. Start time: 2024-04-27 15:50:35.956259. Arguments: (100, 200). Result: 161.
+Function name: random_element. Start time: 2024-04-27 15:50:45.250708. Arguments: (500, 600). Result: 586.
+Function name: random_element. Start time: 2024-04-27 15:50:52.275164. Arguments: (400, 600). Result: 467.
+Function name: random_element. Start time: 2024-04-27 15:53:03.600904. Arguments: (500, 600). Result: 525.
+Function name: random_element. Start time: 2024-04-27 15:56:22.463025. Arguments: (300, 400, <_io.TextIOWrapper name='log_file.txt' mode='a' encoding='cp1251'>). Result: 341.
+Function name: random_element. Start time: 2024-04-27 16:01:38.662564. Arguments: (300, 400). Result: 310.
+Function name: random_element. Start time: 2024-04-27 16:02:11.983787. Arguments: (23, 34). Result: 23.
+Function name: random_element. Start time: 2024-04-27 16:02:14.582494. Arguments: (67, 89). Result: 82.
+Function name: random_element. Start time: 2024-04-27 16:02:16.337106. Arguments: (90, 123). Result: 109.
+Function name: random_element. Start time: 2024-04-27 16:02:18.963975. Arguments: (567, 890). Result: 826.
+Function name: random_element. Start time: 2024-04-27 16:02:21.894113. Arguments: (456, 789). Result: 657.
+Function name: random_element. Start time: 2024-04-27 16:02:25.419448. Arguments: (234, 567). Result: 388.
+Function name: random_element. Start time: 2024-04-27 16:02:28.446765. Arguments: (12, 23). Result: 16.
+Function name: random_element. Start time: 2024-04-27 17:10:25.745049. Arguments: (45, 67). Result: 50.
