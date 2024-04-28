@@ -4,10 +4,6 @@
 списке L и выводит его индекс, если число найдено, или -1, если числа в списке
 нет.
 '''
-num_list, num_search = input('Введите список чисел, разделенных пробелом. ').split(), int(input('Введите число для поиска: '))
-num_list = [int(num) for num in num_list]
+num_list, num_search = sorted(list(map(int, input('Введите список чисел, разделенных пробелом. ').split()))), int(input('Введите число для поиска: '))
 
-if num_search in num_list:
-    print(num_list.index(num_search))
-else:
-    print(-1)
+print(num_list.index(num_search)) if num_search in num_list else print(-1)

@@ -3,23 +3,30 @@
 список L по возрастанию.
 '''
 
-def sort_integer(num_list): # Для списка целых чисел.
-    print(*sorted(list(map(int, num_list))))
+def sort_list(num_list): # Функция сортировки.
+    global sorted_list
+    if len(num_list) == 0:
+        return sorted_list
+    minimum = min(num_list)
+    sorted_list.append(minimum)
+    num_list.remove(minimum)
+    return sort_list(num_list)
 
-def sort_float_and_integer(num_list): # Для списка любых чисел.
-    new_num_list = []
+def for_list(num_list): # Функция, формирующая новый список (на случай, если переданы float-числа).
+    list_for_sort = []
     for num in num_list:
         if '.' in num:
-            new_num_list.append(float(num))
+            list_for_sort.append(float(num))
         else:
-            new_num_list.append(int(num))
+            list_for_sort.append(int(num))
 
-    print(*sorted(new_num_list))
+    return sort_list(list_for_sort)
 
 
 num_list = input('Введите список чисел, разделенных пробелом: ')
+sorted_list = []
 
 if '.' in num_list:
-    sort_float_and_integer(num_list.split())
+    print(for_list(num_list.split()))
 else:
-    sort_integer(num_list.split())
+    print(sort_list([int(num) for num in num_list.split()]))
