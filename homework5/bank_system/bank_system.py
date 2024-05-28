@@ -17,7 +17,8 @@ class Bank:
 
     @staticmethod
     def for_help():
-        pass
+        print('To get help, contact support (available also by phone - 999).')
+        exit()
 
 
 
@@ -40,9 +41,14 @@ class BankClient:
                 attempts_enter_id -= 1
                 if attempts_enter_id != 0:
                     id = str(input('Enter your ID (9 numbers): '))
+                    if id == '#3':
+                        Bank.for_help()
+                        exit()
                     return BankClient.check_client(login, id, client_base, attempts_enter_login, attempts_enter_id)
                 else:
                     print('The limit of attempts has been exceeded! Try some later:(')
+                    if input('Do you need help? Enter "yes" or "no": ').lower() == 'yes':
+                        Bank.for_help()
                     for second in range(60, 0, -1):
                         sleep(1.0)
                         print(second, end='... ')
@@ -51,13 +57,19 @@ class BankClient:
                     id = str(input('Enter your ID (9 numbers): '))
                     return BankClient.check_client(login, id, client_base, attempts_enter_login, attempts_enter_id)
         except KeyError as log:
-            print(f"Account with login {log} doesn't exist. Try again or use command '#3' (help)!") # КОМАНДА 3 НЕ СОЗДАНА!!!!
+            print(f"Account with login {log} doesn't exist. Try again or use command '#3' (help)!")
             attempts_enter_login -= 1
             if attempts_enter_login != 0:
                 login = input('Enter your login: ')
+                if login == '#3':
+                    Bank.for_help()
+                    exit()
                 return BankClient.check_client(login, id, client_base, attempts_enter_login, attempts_enter_id)
             else:
                 print('The limit of attempts has been exceeded! Try some later:(')
+                if input('Do you need help? Enter "yes" or "no": ').lower() == 'yes':
+                    Bank.for_help()
+                    exit()
                 for second in range(60, 0, -1):
                     sleep(1.0)
                     print(second, end='... ')
@@ -118,7 +130,6 @@ class BankAccount:
                     print(error)
                     amount = Decimal(input(f'Enter new amount less than or equal to than {client_base[login][1][1]} in {all_currency[currency]}: '))
                     BankAccount.change_bank_account(login, client_base, answer, currency, amount, all_currency)
-            
         elif currency == 840:
             if answer == '+':
                 client_base[login][2][1] += amount
@@ -164,9 +175,37 @@ class BankAccount:
             currency = int(input('Enter new currency (only code): '))
             BankAccount.change_bank_account(login, client_base, answer, currency, amount, all_currency)
 
+    @staticmethod
+    def check_balance(login, client_base, currency, all_currency):
+        try:
+            if currency == 933:
+                print(f'{login}, your balance in {all_currency[currency]} - {client_base[login][1][1]}')
+            elif currency == 840:
+                print(f'{login}, your balance in {all_currency[currency]} - {client_base[login][2][1]}')
+            elif currency == 978:
+                print(f'{login}, your balance in {all_currency[currency]} - {client_base[login][3][1]}')
+            elif currency == 643:
+                print(f'{login}, your balance in {all_currency[currency]} - {client_base[login][4][1]}')
+            else:
+                print(f'{login} something is wrong, try again :(')
+                print(*all_currency.items(), sep='\n')
+                try:
+                    currency = int(input('Enter code currency again, please: '))
+                    return BankAccount.check_balance(login, client_base, currency, all_currency)
+                except ValueError:
+                    print('Use only code! ')
+                    currency = int(input('Enter code currency again, please: '))
+                    return BankAccount.check_balance(login, client_base, currency, all_currency)
+        except:
+            print(f'{login} something is wrong. Try again! ')
+            print(*all_currency.items(), sep='\n')
+            currency = int(input('Enter code currency again, please: '))
+            return BankAccount.check_balance(login, client_base, currency, all_currency)
+
     def save_history():
-        
         pass
+
+    
 
 
 
@@ -247,8 +286,10 @@ def login_to_account():
                     print(f'Account in {all_currency[currency]} is not open. You have accounts: {''.join(created_accounts)}.')
                     if input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no". ').lower() == 'yes':
                         BankAccount.create_bank_account(login, currency, all_clients)
-        elif answer in '?***':
-            pass    
+        elif answer == '?':
+            BankAccount.check_balance(login, all_clients, currency, all_currency)
+        elif answer == '***':
+            pass
         else:
             print(f"{answer} isn't correct:( Try again...")
         
