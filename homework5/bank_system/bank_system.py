@@ -1,4 +1,4 @@
-from random import sample
+from random import sample, uniform
 from sys import exit
 from decimal import Decimal
 from os import name, system
@@ -265,6 +265,12 @@ def login_to_account():
         print(*all_currency.items(), sep='\n')
         try:
             currency = int(input('Select the currency (enter only code, please!): '))
+            try:
+                check_error = all_currency[currency]
+            except KeyError:
+                print(f'Code {currency} does not exist! Try again.')
+                continue
+
         except ValueError as value:
             print(f'{value} is not code. Maybe you wanted to do something else? Try again.')
         if answer in '+-':
@@ -280,8 +286,59 @@ def login_to_account():
                             flag = True
 
                 if flag:
-                    amount = Decimal(input(f'Enter amount in {all_currency[currency]}: '))
-                    BankAccount.change_bank_account(login, all_clients, answer, currency, amount, all_currency)
+                    print(f'{login}, do you want to transfer money from an already created account in another currency?')
+                    yes_or_no = input('Enter "yes" or "no"').lower()
+                    if yes_or_no == 'yes':
+                        print(*all_currency.items(), sep='\n')
+                        try:
+                            currency_from = int(input(f'Select the currency code from which you want to transfer the amount (except {all_currency[currency]}): ')) # ДОБАВИТЬ ПРОВЕРКУ
+                            if currency_from == currency:
+                                print('Something is wring:( Try again.')
+                            if currency == 933:
+                                if currency_from == 840 and all_currency[currency_from] in created_accounts:
+                                    amount = Decimal(uniform(3.0, 3.3))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, amount, all_currency)
+                                elif currency_from == 978:
+                                    pass
+                                elif currency_from == 643:
+                                    pass
+                                else:
+                                    print('Use only special currency codes! Try again.')
+                            elif currency == 840:
+                                if currency_from == 933:
+                                    pass
+                                elif currency_from == 978:
+                                    pass
+                                elif currency_from == 643:
+                                    pass
+                                else:
+                                    print('Use only special currency codes! Try again.')
+                            elif currency == 978:
+                                if currency_from == 933:
+                                    pass
+                                elif currency_from == 840:
+                                    pass
+                                elif currency_from == 643:
+                                    pass
+                                else:
+                                    print('Use only special currency codes! Try again.')
+                            elif currency == 643:
+                                if currency_from == 840:
+                                    pass
+                                elif currency_from == 978:
+                                    pass
+                                elif currency_from == 933:
+                                    pass
+                                else:
+                                    print('Use only special currency codes! Try again.')
+
+                        except ValueError as value:
+                            print(f'{value} is not code. Maybe you wanted to do something else? Try again.')
+                    elif yes_or_no == 'no':
+                        amount = Decimal(input(f'Enter amount in {all_currency[currency]}: '))
+                        BankAccount.change_bank_account(login, all_clients, answer, currency, amount, all_currency)
+                    else:
+                        print("Something is wrong:( Let's try it again.")
                 else:
                     print(f'Account in {all_currency[currency]} is not open. You have accounts: {''.join(created_accounts)}.')
                     if input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no". ').lower() == 'yes':
@@ -328,4 +385,10 @@ simple_bank_system() # Запуск всей программы.
 1 USD = 3.0 - 3.3
 1 EUR = 3.40 - 3.60
 100 RUB = 3.50 - 3.60 / (1 RUB * NUM) / 100 = 0.035 - 0.036
+
+
+        933: 'BYN', # index_code: [1]
+        840: 'USD', # index_code: [2]
+        978: 'EUR', # index_code: [3]
+        643: 'RUB', # index_code: [4]
 '''
