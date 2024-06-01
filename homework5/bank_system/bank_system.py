@@ -21,7 +21,7 @@ class Bank:
         exit()
 
     def more_or_less(available, for_withdrawal, name_of_currency):
-        if available > for_withdrawal:
+        if available >= for_withdrawal:
             return for_withdrawal
         for_withdrawal = Decimal(input(f'Enter amount in {name_of_currency} for withdrawal less or equal {available}: '))
         Bank.more_or_less(available, for_withdrawal, name_of_currency)
@@ -284,21 +284,22 @@ def login_to_account():
         if answer in '+-':
             if len([k for k in range(1, 5) if type(all_clients[login][k][1]) != str]) == 0:
                 print('You have no created account!')
-                if str(input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no". ')).lower() == 'yes':
+                if str(input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no": ')).lower() == 'yes':
                     BankAccount.create_bank_account(login, currency, all_clients, all_currency)
             else:
                 for j in range(1, 5):
                     if type(all_clients[login][j][1]) != str:
-                        created_accounts.append(all_currency[all_clients[login][j][0]])
-                        if all_clients[login][j][0] == currency:
-                            flag = True
+                        if all_currency[all_clients[login][j][0]] not in created_accounts:
+                            created_accounts.append(all_currency[all_clients[login][j][0]])
+                            if all_clients[login][j][0] == currency:
+                                flag = True
 
                 if flag:
                     print(f'{login}, do you want to transfer money from an already created account in another currency?')
-                    yes_or_no = input('Enter "yes" or "no"').lower()
-                    if yes_or_no == 'yes':
+                    yes_or_no = input('Enter "yes" or "no": ').lower()
+                    if yes_or_no == 'yes' and len(created_accounts) > 1:
                         print(*all_currency.items(), sep='\n')
-                        print(f'IMPORTANT! You have accounts in: {created_accounts}. Use only their codes!')
+                        print(f'IMPORTANT! You have accounts in: {', '.join(created_accounts)}. Use only their codes!')
                         try:
                             currency_from = int(input(f'Select the currency code from which you want to transfer the amount (except {all_currency[currency]}): '))
                             if currency_from == currency or currency_from not in all_currency.keys() or all_currency[currency_from] not in created_accounts:
@@ -340,27 +341,75 @@ def login_to_account():
                                     currency_rate = Decimal(uniform(3.0, 3.3))
                                     BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount / currency_rate):.2f}'), all_currency)
                                 elif currency_from == 978:
-                                    pass
+                                    available_amount = all_clients[login][3][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in EUR for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(1.0, 1.1))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 elif currency_from == 643:
-                                    pass
+                                    available_amount = all_clients[login][4][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in RUB for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(0.01 - 0.02))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 else:
                                     print('Use only special currency codes! Try again.')
                             elif currency == 978:
                                 if currency_from == 933:
-                                    pass
+                                    available_amount = all_clients[login][1][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in BYN for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(3.40, 3.60))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount / currency_rate):.2f}'), all_currency)
                                 elif currency_from == 840:
-                                    pass
+                                    available_amount = all_clients[login][2][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in USD for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(0.9, 1.0))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 elif currency_from == 643:
-                                    pass
+                                    available_amount = all_clients[login][4][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in RUB for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(0.01, 0.02))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 else:
                                     print('Use only special currency codes! Try again.')
                             elif currency == 643:
                                 if currency_from == 840:
-                                    pass
+                                    available_amount = all_clients[login][2][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in RUB for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(0.035, 0.036))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 elif currency_from == 978:
-                                    pass
+                                    available_amount = all_clients[login][3][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in EUR for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(97.0, 110.0))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 elif currency_from == 933:
-                                    pass
+                                    available_amount = all_clients[login][1][1]
+                                    print(f'{login}, you have {available_amount} in {all_currency[currency_from]}.')
+                                    amount = Decimal(input('Enter amount in EUR for withdrawal: '))
+                                    if available_amount < amount:
+                                        amount = Bank.more_or_less(available_amount, amount, all_currency[currency_from])
+                                    currency_rate = Decimal(uniform(0.035, 0.036))
+                                    BankAccount.change_bank_account(login, all_clients, answer, currency, Decimal(f'{(amount * currency_rate):.2f}'), all_currency)
                                 else:
                                     print('Use only special currency codes! Try again.')
 
@@ -370,10 +419,10 @@ def login_to_account():
                         amount = Decimal(input(f'Enter amount in {all_currency[currency]}: '))
                         BankAccount.change_bank_account(login, all_clients, answer, currency, amount, all_currency)
                     else:
-                        print("Something is wrong:( Let's try it again.")
+                        print("Something is wrong (the requested account may not have been created) :( Let's try it again.")
                 else:
-                    print(f'Account in {all_currency[currency]} is not open. You have accounts: {''.join(created_accounts)}.')
-                    if input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no". ').lower() == 'yes':
+                    print(f'Account in {all_currency[currency]} is not open. You have accounts: {', '.join(created_accounts)}.')
+                    if input(f'Would you create account in {all_currency[currency]}? Enter "yes" or "no": ').lower() == 'yes':
                         BankAccount.create_bank_account(login, currency, all_clients, all_currency)
         elif answer == '?':
             BankAccount.check_balance(login, all_clients, currency, all_currency)
