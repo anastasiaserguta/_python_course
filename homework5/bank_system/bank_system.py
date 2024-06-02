@@ -3,6 +3,13 @@ from sys import exit
 from decimal import Decimal
 from os import name, system
 from time import sleep
+import json
+
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, Decimal):
+            return str(obj)
+        return super().default(obj) 
 
 class Bank:
     client_base = {}
@@ -11,9 +18,14 @@ class Bank:
             client_base[login] = [id]
             for i in range(4):
                 client_base[login].append([all_currency[i], 'not open'])
+            Bank.serialization(client_base)
             print(client_base)
+            print(f'Your login: {login}. Your ID: {id}.')
         else:
             print(f'Account with this login "{login}" exist, please, try again:(')
+            login = input('Enter your first and last name. ')
+            id = ''.join(map(str, sample(range(0, 10), 3)))
+            Bank.add_bank_client_to_the_client_base(client_base, all_currency, login, id)
 
     @staticmethod
     def for_help():
@@ -26,7 +38,15 @@ class Bank:
         for_withdrawal = Decimal(input(f'Enter amount in {name_of_currency} for withdrawal less or equal {available}: '))
         Bank.more_or_less(available, for_withdrawal, name_of_currency)
 
+    @staticmethod
+    def serialization(all_clients):
+        with open('client_base.json', 'w') as fh:
+            fh.write(json.dumps(all_clients, indent=4, cls=DecimalEncoder))
 
+    def deserialization():
+        with open('client_base.json', 'r') as fh:
+            all_clients = json.loads(fh.read())
+            return all_clients
 
 class BankClient:
     def __init__(self, client_name, id):
@@ -96,7 +116,7 @@ class BankAccount:
     }
 
     all_actions_with_currency = {
-        '+': 'Replenish balance.',
+        '+': 'Replenish balance or create account.',
         '-': 'Withdraw money.',
         '?': 'Check balance.',
         '***': 'Check all transaction history.',
@@ -106,15 +126,19 @@ class BankAccount:
     def create_bank_account(login, currency, client_base, all_currency):
         if currency == 933:
             client_base[login][1][1] = 0
+            Bank.serialization(client_base)
             print(f'Account {all_currency[currency]} is open.')
         elif currency == 840:
             client_base[login][2][1] = 0
+            Bank.serialization(client_base)
             print(f'Account {all_currency[currency]} is open.')
         elif currency == 978:
             client_base[login][3][1] = 0
+            Bank.serialization(client_base)
             print(f'Account {all_currency[currency]} is open.')
         elif currency == 643:
             client_base[login][4][1] = 0
+            Bank.serialization(client_base)
             print(f'Account {all_currency[currency]} is open.')
         else:
             print(f'Code {currency} does not match the currency.')
@@ -127,6 +151,7 @@ class BankAccount:
         if currency == 933:
             if answer == '+':
                 client_base[login][1][1] += amount
+                Bank.serialization(client_base)
             elif answer == '-':
                 try:
                     if client_base[login][1][1] - amount < 0:
@@ -141,6 +166,7 @@ class BankAccount:
         elif currency == 840:
             if answer == '+':
                 client_base[login][2][1] += amount
+                Bank.serialization(client_base)
             elif answer == '-':
                 try:
                     if client_base[login][2][1] - amount < 0:
@@ -154,6 +180,7 @@ class BankAccount:
         elif currency == 978:
             if answer == '+':
                 client_base[login][3][1] += amount
+                Bank.serialization(client_base)
             elif answer == '-':
                 try:
                     if client_base[login][3][1] - amount < 0:
@@ -167,6 +194,7 @@ class BankAccount:
         elif currency == 643:
             if answer == '+':
                 client_base[login][4][1] += amount
+                Bank.serialization(client_base)
             elif answer == '-':
                 try:
                     if client_base[login][4][1] - amount < 0:
@@ -213,10 +241,6 @@ class BankAccount:
     def save_history():
         pass
 
-    
-
-
-
 all_start_actions = {
     1: 'Create new client account',
     2: 'Login to client account',
@@ -229,8 +253,8 @@ def create_new_account():
     # else:
     #     system('clear')
     new_client = BankClient(input('Enter your first and last name. '), ''.join(map(str, sample(range(0, 10), 3)))) #ВЕРНУТЬ НОРМ ID!!!!
-    Bank.add_bank_client_to_the_client_base(Bank.client_base, list(BankAccount.all_code_currency.keys()), login=new_client.name, id=new_client._id)
-    print(f'Your login: {new_client.name}. Your ID: {new_client._id}.')
+    all_clients = Bank.client_base
+    Bank.add_bank_client_to_the_client_base(all_clients, list(BankAccount.all_code_currency.keys()), login=new_client.name, id=new_client._id)
     print('Use them to login to your new bank account!')
     print('Important! remember your ID, it is necessary to use the system.')
     for second in range(5, 0, -1): # ИМЗЕНИТЬ КОЛИЧЕСТВО СЕКУНД -> 60 !!!!
@@ -247,7 +271,7 @@ def login_to_account():
     login = input('Enter your login: ')
     id = str(input('Enter your ID (9 numbers): '))
     # print(f'{login=}, {id=}') # нЕ ЗАБЫТЬ УДАЛИТЬ!!!
-    all_clients = Bank.client_base
+    all_clients = Bank.deserialization()
     total_attempts_login = 5
     total_attempts_id = 5
     login = BankClient.check_client(login, id, all_clients, total_attempts_login, total_attempts_id)
@@ -440,7 +464,7 @@ def simple_bank_system(): # Функция, определяющая возмо�
     try:
         answer = int(input('What would you do? Please, enter command code. '))
         if answer == 1:
-            create_new_account()
+            print(create_new_account())
         elif answer == 2:
             login_to_account()
         elif answer == 3:
@@ -448,7 +472,8 @@ def simple_bank_system(): # Функция, определяющая возмо�
         else:
             print(f'Answer {answer} is incorrect. Please, enter correct value!')
             return simple_bank_system()
-    except ValueError:
+    except ValueError as value:
+        print(value)
         print('Use only numeric commands!')
         simple_bank_system()
     
@@ -457,7 +482,6 @@ def simple_bank_system(): # Функция, определяющая возмо�
 #     system('cls')
 # else:
 #     system('clear')
-
 simple_bank_system() # Запуск всей программы.
 
 
