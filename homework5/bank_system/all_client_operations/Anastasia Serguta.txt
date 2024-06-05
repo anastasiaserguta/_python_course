@@ -1,0 +1,4 @@
+Operations of Anastasia Serguta: 
+
+Operation: change_bank_account. Time: 2024-06-05 17:28:04.482866. Operation: -. Currency: BYN. Amount: 756. Balance: BYN: 6865. USD: 0. EUR: not open. RUB: not open.
+Operation: change_bank_account. Time: 2024-06-05 17:30:08.760918. Operation: +. Currency: RUB. Amount: 2.15. Balance: BYN: 6109. USD: 0. EUR: not open. RUB: not open.
