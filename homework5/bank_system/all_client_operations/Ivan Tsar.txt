@@ -1,1 +1,18 @@
-Operations of Ivan Tsar: 
+
+Operation: change_bank_account. Time: 2024-06-07 23:09:42.434289. Operation: +. Currency: BYN. Amount: 500. Balance: BYN: 0. USD: not open. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:10:07.556195. Operation: -. Currency: BYN. Amount: 1000. Balance: BYN: 500.00. USD: not open. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:10:21.937248. Operation: -. Currency: BYN. Amount: 500.00. Balance: BYN: 500.00. USD: not open. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:11:52.708111. Operation: +. Currency: BYN. Amount: 5000. Balance: BYN: 0.00. USD: not open. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:12:29.484847. Operation: +. Currency: USD. Amount: 100. Balance: BYN: 5000.00. USD: not open. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:18:37.604449. Operation: +. Currency: USD. Amount: 317.94. Balance: BYN: 5000.00. USD: 0. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:18:37.613445. Operation: -. Currency: BYN. Amount: 1000. Balance: BYN: 5000.00. USD: 317.94. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:21:34.300714. Operation: +. Currency: USD. Amount: 319.01. Balance: BYN: 4000.00. USD: 317.94. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-07 23:21:34.301713. Operation: -. Currency: BYN. Amount: 1000. Balance: BYN: 4000.00. USD: 636.95. EUR: not open. RUB: not open.

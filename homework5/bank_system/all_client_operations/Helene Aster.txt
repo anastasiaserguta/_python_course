@@ -1,0 +1,2 @@
+Operations of Helene Aster: 
+Operation: change_bank_account. Time: 2024-06-07 23:08:32.694453. Operation: +. Currency: BYN. Amount: 678. Balance: BYN: 0. USD: not open. EUR: not open. RUB: not open.

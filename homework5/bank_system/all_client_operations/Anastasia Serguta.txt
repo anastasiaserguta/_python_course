@@ -17,3 +17,7 @@ Operation: change_bank_account. Time: 2024-06-05 22:30:22.160475. Operation: -. 
 Operation: change_bank_account. Time: 2024-06-05 22:42:10.076083. Operation: +. Currency: USD. Amount: 274.97. Balance: BYN: 5843.11. USD: 117.13. EUR: not open. RUB: not open.
 
 Operation: change_bank_account. Time: 2024-06-05 22:42:10.086603. Operation: -. Currency: BYN. Amount: 843.11. Balance: BYN: 5843.11. USD: 392.10. EUR: not open. RUB: not open.
+
+Operation: change_bank_account. Time: 2024-06-09 15:54:30.110079. Operation: -. Currency: BYN. Amount: 300. Balance: BYN: 3010.70. USD: 300.00. EUR: 88.41. RUB: 28207.15.
+
+Operation: change_bank_account. Time: 2024-06-09 16:00:19.734551. Operation: -. Currency: BYN. Amount: 67. Balance: BYN: 2710.70. USD: 300.00. EUR: 88.41. RUB: 28207.15.
