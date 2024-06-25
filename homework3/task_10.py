@@ -18,39 +18,36 @@ def start_game():    # Функция старта, где пользовате�
     print(f'Теперь, {name}, попробуйте угадать случайное число.')
     print(f'{name}, необходимо ввести любое целое число от {start_num} до {end_num}.')
 
+    global digit_user
     digit_user = int(input('Введите предполагаемое число: ')) 
 
-    if digit_user < start_num or digit_user > end_num:
-        is_valid(start_num, end_num, digit_user, num_random)
-    else:
-        random_game(start_num, end_num, digit_user, num_random)
+    if is_valid(start_num, end_num, num_random):
+        random_game(start_num, end_num, num_random)
 
-def is_valid(start_num, end_num, digit_user, num_random): # Функция проверки корректности введенного пользователем числа.
-        flag = False
-        while flag != True:
+def is_valid(start_num, end_num, num_random): # Функция проверки корректности введенного пользователем числа.
+        global digit_user
+        while digit_user < start_num or digit_user > end_num:
             if digit_user < start_num or digit_user > end_num:
                 print(f'{name}, введите корректное число (в диапазоне от {start_num} до {end_num} включительно).')
-                digit_user = int(input())
-                
+                digit_user = int(input(f'Введите любое целое число от {start_num} до {end_num}. '))
             else:
-                flag = True
                 break
+        return True
                 
-        if flag == True: # При вводве корректного значения запускаем основной блок игры.
-            random_game(start_num, end_num, digit_user, num_random)
-
-def random_game(start_num, end_num, digit_user, num_random):   # Основая часть игры.                              
+def random_game(start_num, end_num, num_random):   # Основая часть игры.                              
+    global digit_user
     total = 1
     while num_random != digit_user and total != 5:
-    
         if digit_user > num_random:
             print(f'{name}, многовато, попробуйте еще раз:(')
             digit_user = int(input('Введите новое число: '))
-            total += 1
+            if is_valid(start_num, end_num, num_random):
+                total += 1
         elif digit_user < num_random:
             print(f'{name}, маловато, попробуйте еще раз.')
             digit_user = int(input('Введите новое число: '))
-            total += 1
+            if is_valid(start_num, end_num, num_random):
+                total += 1
         
     if digit_user == num_random:
         print(f'{name}, Вы угадали за {total} попыток поздравляем!')
