@@ -21,7 +21,7 @@ jobs:
       - name: Lint with black
         run: |
           pip install black
-          black .
+          black . --include="\.py" .
           ...
 
       - name: Lint with isort
