@@ -11,10 +11,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-
-      - name: Add commands directory to PATH
-        run: |
-          echo "/HolismHolding/Commands" >> $GITHUB_PATH
       
       - name: Lint with flake8
         run: |
@@ -38,7 +34,7 @@ jobs:
       #   run: |
       #     pip install black
       #     black . --exclude="\.ipynb" .
-          ...
+          # ...
 
 
 
