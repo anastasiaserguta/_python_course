@@ -29,11 +29,11 @@ jobs:
           isort .
           ...
       
-      # - name: Lint with black
-      #   run: |
-      #     pip install black
-      #     black . --exclude="\.ipynb" .
-          # ...
+      - name: Lint with black
+        run: |
+          pip install black
+          black . --exclude="\.ipynb" .
+          ...
 
 
 
