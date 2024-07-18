@@ -7,9 +7,14 @@ on:
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
+      - name: Add commands directory to PATH
+        run: |
+          echo "/HolismHolding/Commands" >> $GITHUB_PATH
       
       - name: Lint with flake8
         run: |
