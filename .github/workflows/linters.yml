@@ -3,13 +3,19 @@ name: Lint
 on: [push, pull_request]
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: psf/black@stable
-        with:
-          options: "--check --verbose"
-          src: "./src"
-          jupyter: true
-          version: "21.5b1"
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12
+
+    - name: Install Black
+      run: pip install black
+
+    - name: Run Black
+      run: black . --check
