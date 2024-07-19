@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
       - run: pip install black flake8 isort mypy 
-      - run: black --check . --verbose --exclude="homework2\" || false
+      - run: black --check . --verbose --exclude=".\homework2\" || false
       - run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
       - run: flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --show-source --statistics
       - run: isort --check-only --profile black . || false
