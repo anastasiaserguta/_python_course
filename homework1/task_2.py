@@ -1,10 +1,12 @@
-'''
+"""
 Найти самое длинное слово в введенном предложении. Учтите что в предложении есть знаки препинания.
 Подсказки:
 - my_string.split([chars]) возвращает список строк.
 - len(list) - количество элементов в списке
-'''
+"""
 
-word_list = [word.strip('.,;:-?!') for word in input().split()] # Удаление знаков препинания в списке слов.
+word_list = [
+    word.strip(".,;:-?!") for word in input().split()
+]  # Удаление знаков препинания в списке слов.
 
-print(max(word_list, key=len, default=None)) # Поиск самого длинного слова.
+print(max(word_list, key=len, default=None))  # Поиск самого длинного слова.
