@@ -1,12 +1,13 @@
+# type: ignore
+import enum
+import json
+from datetime import datetime
+from decimal import Decimal, InvalidOperation
+from functools import wraps
+from os import getcwd, makedirs, name, path, system
 from random import sample, uniform
 from sys import exit
-from decimal import Decimal, InvalidOperation
-from os import name, system, path, makedirs, getcwd
 from time import sleep
-from datetime import datetime
-import json
-import enum
-from functools import wraps
 
 
 class Currency(
