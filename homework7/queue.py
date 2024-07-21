@@ -4,9 +4,10 @@ class Node:
         self.next = next
 
     def __str__(self) -> str:
-        return f'{self.data}'
-    
-class QueueIterator: # Реализация протокола итерации.
+        return f"{self.data}"
+
+
+class QueueIterator:  # Реализация протокола итерации.
     def __init__(self, first_node):
         self.current = first_node
 
@@ -21,13 +22,14 @@ class QueueIterator: # Реализация протокола итерации.
 
         return result
 
+
 class Queue:
     def __init__(self):
         self._first_node = None
         self._last_node = None
         self._size = 0
 
-    def enqueue(self, item): # Добавление элемента в конец очереди.
+    def enqueue(self, item):  # Добавление элемента в конец очереди.
         new_data = Node(item)
         if self._first_node is None:
             self._first_node = new_data
@@ -38,42 +40,43 @@ class Queue:
             self._last_node = new_data
             self._size += 1
 
-    def dequeue(self): # Удаление и возврат элемента из начала очереди.
+    def dequeue(self):  # Удаление и возврат элемента из начала очереди.
         data = self._first_node.data
         self._first_node = self._first_node.next
         if self._first_node is None:
-            self._last_node is None
+            self._last_node = None
         self._size -= 1
         return data
 
-    def front(self): # Возврат элемента из начала очереди без его удаления.
-        return f'The first object - {self._first_node}.'
+    def front(self):  # Возврат элемента из начала очереди без его удаления.
+        return self._first_node.data
 
-    def is_empty(self): # Проверяет пустая ли очередь.
+    def is_empty(self) -> bool:  # Проверяет пустая ли очередь.
         if self._first_node is None:
-            return 'Queue is empty.'
-        return 'Queue has data.'
+            return True
+        return False
 
-    def size(self): # Количество элементов в очереди.
+    def size(self) -> int:  # Количество элементов в очереди.
         if self._size > 0:
-            return f'Queue contains {self._size} objects.'
+            return self._size
         else:
-            return f'Queue has no objects.'
+            return 0
 
-    def display(self): # Вывод от начала до конца.
+    def display(self):  # Вывод от начала до конца.
         if self._first_node is None:
-            print('List is empty.')
+            print("List is empty.")
             return
         current = self._first_node
-        while current:
-            print(current.data, end=' | ')
+        for _ in range(self._size):
+            print(current.data, end=" | ")
             current = current.next
         print()
-    
-    def __iter__(self): # Итерация по списку.
+
+    def __iter__(self):  # Итерация по списку.
         return QueueIterator(self._first_node)
-        
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     queue = Queue()
     print(queue.is_empty())
     for i in range(5):
