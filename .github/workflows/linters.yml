@@ -1,0 +1,16 @@
+name: lint
+on: [pull_request]
+jobs:
+  lint_python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - run: pip install black flake8 isort
+      # - run: pip install black flake8 isort mypy
+      - run: black .  --check || false 
+      - run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - run: flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --show-source --statistics
+      - run: isort --check-only --profile black . || false
+      - run: pip install -r requirements.txt || true
+      # - run: mypy --install-types --non-interactive . || false
