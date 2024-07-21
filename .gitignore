@@ -167,6 +167,7 @@ venv/Lib/site-packages/click-8.1.7.dist-info/INSTALLER
 venv/Lib/site-packages/click-8.1.7.dist-info/LICENSE.rst
 venv/Lib/site-packages/click-8.1.7.dist-info/METADATA
 venv/Lib/site-packages/click-8.1.7.dist-info/RECORD
+venv/Lib/site-packages/click-8.1.7.dist-info/REQUESTED
 venv/Lib/site-packages/click-8.1.7.dist-info/top_level.txt
 venv/Lib/site-packages/click-8.1.7.dist-info/WHEEL
 venv/Lib/site-packages/colorama/__init__.py
@@ -198,6 +199,7 @@ venv/Lib/site-packages/colorama/tests/__pycache__/winterm_test.cpython-312.pyc
 venv/Lib/site-packages/colorama-0.4.6.dist-info/INSTALLER
 venv/Lib/site-packages/colorama-0.4.6.dist-info/METADATA
 venv/Lib/site-packages/colorama-0.4.6.dist-info/RECORD
+venv/Lib/site-packages/colorama-0.4.6.dist-info/REQUESTED
 venv/Lib/site-packages/colorama-0.4.6.dist-info/WHEEL
 venv/Lib/site-packages/colorama-0.4.6.dist-info/licenses/LICENSE.txt
 venv/Lib/site-packages/isort/__init__.py
@@ -1370,6 +1372,7 @@ venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/INSTALLER
 venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/LICENSE
 venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/METADATA
 venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/RECORD
+venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/REQUESTED
 venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/top_level.txt
 venv/Lib/site-packages/mypy_extensions-1.0.0.dist-info/WHEEL
 venv/Lib/site-packages/mypyc/__init__.cp312-win_amd64.pyd
@@ -1883,6 +1886,7 @@ venv/Lib/site-packages/packaging-24.1.dist-info/LICENSE.APACHE
 venv/Lib/site-packages/packaging-24.1.dist-info/LICENSE.BSD
 venv/Lib/site-packages/packaging-24.1.dist-info/METADATA
 venv/Lib/site-packages/packaging-24.1.dist-info/RECORD
+venv/Lib/site-packages/packaging-24.1.dist-info/REQUESTED
 venv/Lib/site-packages/packaging-24.1.dist-info/WHEEL
 venv/Lib/site-packages/pathspec/__init__.py
 venv/Lib/site-packages/pathspec/_meta.py
@@ -1905,6 +1909,7 @@ venv/Lib/site-packages/pathspec-0.12.1.dist-info/INSTALLER
 venv/Lib/site-packages/pathspec-0.12.1.dist-info/LICENSE
 venv/Lib/site-packages/pathspec-0.12.1.dist-info/METADATA
 venv/Lib/site-packages/pathspec-0.12.1.dist-info/RECORD
+venv/Lib/site-packages/pathspec-0.12.1.dist-info/REQUESTED
 venv/Lib/site-packages/pathspec-0.12.1.dist-info/WHEEL
 venv/Lib/site-packages/pip/__init__.py
 venv/Lib/site-packages/pip/__main__.py
@@ -2947,12 +2952,14 @@ venv/Lib/site-packages/platformdirs/__pycache__/windows.cpython-312.pyc
 venv/Lib/site-packages/platformdirs-4.2.2.dist-info/INSTALLER
 venv/Lib/site-packages/platformdirs-4.2.2.dist-info/METADATA
 venv/Lib/site-packages/platformdirs-4.2.2.dist-info/RECORD
+venv/Lib/site-packages/platformdirs-4.2.2.dist-info/REQUESTED
 venv/Lib/site-packages/platformdirs-4.2.2.dist-info/WHEEL
 venv/Lib/site-packages/platformdirs-4.2.2.dist-info/licenses/LICENSE
 venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/INSTALLER
 venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/LICENSE
 venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/METADATA
 venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/RECORD
+venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/REQUESTED
 venv/Lib/site-packages/typing_extensions-4.12.2.dist-info/WHEEL
 venv/Scripts/activate
 venv/Scripts/activate.bat
