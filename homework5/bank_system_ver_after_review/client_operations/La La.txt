@@ -1,0 +1,31 @@
+---------------------------------------------------------------------------
+STATUS: DENIED. Date: 2024-07-17 22:00:58.618137. Currency: BYN. Action: balance replenishment. From account: USD. Amount: 100.00. Account balance: 0.
+STATUS: SUCCES. Date: 2024-07-17 22:13:27.450235. Currency: BYN. Action: withdrawal from account. From account: NOT SELECTED. Amount: 400. Account balance: 400.00.
+STATUS: SUCCES. Date: 2024-07-17 22:13:58.566345. Currency: USD. Action: withdrawal from account. From account: NOT SELECTED. Amount: 400. Account balance: 400.00.
+STATUS: SUCCES. Date: 2024-07-17 22:29:37.134868. Currency: EUR. Action: withdrawal from account. From account: NOT SELECTED. Amount: 400. Account balance: 400.00.
+STATUS: SUCCES. Date: 2024-07-17 22:32:52.822291. Currency: RUB. Action: withdrawal from account. From account: NOT SELECTED. Amount: 400. Account balance: 400.00.
+STATUS: SUCCES. Date: 2024-07-17 22:36:48.590034. Currency: BYN. Action: balance replenishment. From account: USD. Amount: 100.00. Account balance: 500.00.
+STATUS: SUCCES. Date: 2024-07-17 22:53:22.703836. Currency: BYN. Action: balance replenishment. From account: EUR. Amount: 100.00. Account balance: 600.00.
+STATUS: DENIED. Date: 2024-07-17 22:53:44.872205. Currency: BYN. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 22:59:03.290315. Currency: USD. Action: balance replenishment. From account: BYN. Amount: 100.00. Account balance: 500.00.
+STATUS: SUCCES. Date: 2024-07-17 22:59:37.094787. Currency: USD. Action: balance replenishment. From account: EUR. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 23:00:43.698140. Currency: USD. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 23:04:23.986488. Currency: USD. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 600.00.
+STATUS: DENIED. Date: 2024-07-17 23:09:06.086508. Currency: USD. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 23:11:31.850092. Currency: RUB. Action: balance replenishment. From account: BYN. Amount: 100.00. Account balance: 500.00.
+STATUS: SUCCES. Date: 2024-07-17 23:12:05.399183. Currency: RUB. Action: balance replenishment. From account: USD. Amount: 100.00. Account balance: 600.00.
+STATUS: DENIED. Date: 2024-07-17 23:12:38.146583. Currency: RUB. Action: balance replenishment. From account: EUR. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 23:13:23.943899. Currency: RUB. Action: balance replenishment. From account: EUR. Amount: 100.00. Account balance: 700.00.
+STATUS: SUCCES. Date: 2024-07-17 23:21:33.996163. Currency: BYN. Action: withdrawal from account. From account: NOT SELECTED. Amount: 134.00. Account balance: 262.49.
+STATUS: DENIED. Date: 2024-07-17 23:21:56.042889. Currency: USD. Action: withdrawal from account. From account: NOT SELECTED. Amount: 789.00. Account balance: 398.94.
+STATUS: SUCCES. Date: 2024-07-17 23:22:45.557880. Currency: USD. Action: withdrawal from account. From account: NOT SELECTED. Amount: 10.00. Account balance: 388.94.
+STATUS: SUCCES. Date: 2024-07-17 23:22:53.852457. Currency: EUR. Action: withdrawal from account. From account: NOT SELECTED. Amount: 78.00. Account balance: 321.08.
+STATUS: DENIED. Date: 2024-07-17 23:23:32.523808. Currency: RUB. Action: withdrawal from account. From account: NOT SELECTED. Amount: 890.00. Account balance: 700.00.
+STATUS: SUCCES. Date: 2024-07-17 23:23:39.334794. Currency: RUB. Action: withdrawal from account. From account: NOT SELECTED. Amount: 67.00. Account balance: 633.00.
+STATUS: SUCCES. Date: 2024-07-17 23:24:02.480337. Currency: BYN. Action: withdrawal from account. From account: NOT SELECTED. Amount: 0. Account balance: 262.49.
+STATUS: SUCCES. Date: 2024-07-17 23:26:41.817611. Currency: EUR. Action: balance replenishment. From account: BYN. Amount: 100.00. Account balance: 500.00.
+STATUS: SUCCES. Date: 2024-07-17 23:27:06.688645. Currency: EUR. Action: balance replenishment. From account: USD. Amount: 100.00. Account balance: 600.00.
+STATUS: SUCCES. Date: 2024-07-17 23:27:45.049105. Currency: EUR. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 700.00.
+STATUS: DENIED. Date: 2024-07-17 23:28:28.718175. Currency: EUR. Action: balance replenishment. From account: RUB. Amount: 100.00. Account balance: 700.00.
+STATUS: SUCCES. Date: 2024-07-17 23:29:00.947462. Currency: EUR. Action: balance replenishment. From account: RUB. Amount: 1.00. Account balance: 701.00.
+STATUS: SUCCES. Date: 2024-07-17 23:29:34.323320. Currency: BYN. Action: withdrawal from account. From account: NOT SELECTED. Amount: 78.67. Account balance: 136.33.
