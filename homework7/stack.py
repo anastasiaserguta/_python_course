@@ -42,8 +42,11 @@ class Stack:
         else:
             return None
 
-    def peek(self) -> int:  # Возврата верхнего элемента без его удаления.
-        return self._top_node.data
+    def peek(self):  # Возврата верхнего элемента без его удаления.
+        if self._size > 0:
+            return self._top_node.data
+        else:
+            return None
 
     def is_empty(self) -> bool:  # Проверка пустоты стека.
         if self._top_node is None:

@@ -41,14 +41,17 @@ class Queue:
             self._size += 1
 
     def dequeue(self):  # Удаление и возврат элемента из начала очереди.
+        if self._first_node == None:
+            self._last_node = None
+            return None
         data = self._first_node.data
         self._first_node = self._first_node.next
-        if self._first_node is None:
-            self._last_node = None
         self._size -= 1
         return data
 
     def front(self):  # Возврат элемента из начала очереди без его удаления.
+        if self._first_node == None:
+            return None
         return self._first_node.data
 
     def is_empty(self) -> bool:  # Проверяет пустая ли очередь.
@@ -65,7 +68,7 @@ class Queue:
     def display(self):  # Вывод от начала до конца.
         if self._first_node is None:
             print("List is empty.")
-            return
+            return None
         current = self._first_node
         for _ in range(self._size):
             print(current.data, end=" | ")
