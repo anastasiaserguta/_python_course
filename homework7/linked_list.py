@@ -73,17 +73,20 @@ class LinkedList:
             self._size += 1
 
     def delete(self, item):  # Удаление первого вхождения элемента.
-        current = self._head_node
-        previous = None
-        while current.data != item and current.next:
-            previous = current
-            current = current.next
-        if current.data == item:
-            if previous:
-                previous.next = current.next
-            else:
-                self._head_node = current.next
-        self._size -= 1
+        if self._size > 0:
+            current = self._head_node
+            previous = None
+            while current.data != item and current.next:
+                previous = current
+                current = current.next
+            if current.data == item:
+                if previous:
+                    previous.next = current.next
+                else:
+                    self._head_node = current.next
+            self._size -= 1
+        else:
+            return None
 
     def find(self, item):  # Возврат узла с элементом либо None, если элемент не найден.
         current = self._head_node
@@ -110,7 +113,7 @@ class LinkedList:
     ):  # Вывод списка от начала до конца, если reverse=False, или от конца до начала, если True.
         if self._head_node is None:
             print("List is empty.")
-            return
+            return None
         if reverse is not True:
             current = self._head_node
             while current:
